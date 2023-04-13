@@ -41,14 +41,14 @@ app.get("/players/", async (request, response) => {
 
 app.post("/players/", async (request, response) => {
   const playerDetails = request.body;
-  const { player_name, jersey_number, role } = playerDetails;
+  const { playerName, jerseyNumber, role } = playerDetails;
   const addPlayerQuery = `
     INSERT INTO
       cricket_team (player_name,jersey_number,role)
     VALUES
         ( 
-        '${player_name}',
-        ${jersey_number},
+        '${playerName}',
+        ${jerseyNumber},
         '${role}'
       );`;
   const updated = await db.run(addPlayerQuery);
